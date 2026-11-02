@@ -1,0 +1,37 @@
+== overall (every valid file, deliberately broken files excluded)
+files                     24
+completed                 24   success rate 1.000
+failed or crashed         0   failure rate 0.000
+flagged for review       15 of 24 ordinary files (0.625); fault and duplicate files are left out because they are flagged on purpose
+seconds per file          median 5.32   p90 12.94   max 16.3
+seconds per page          median 5.324   p90 12.94
+batch wall time           87.9 s for 24 files with 2 parallel jobs
+  scan           files  24  failed  0  median s   5.32  p90 s  12.94
+
+
+== by group
+                       files  recs   micro  strict  lineF1 qty/unit  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+scan                      24    24   0.624   0.125   0.544    0.785   0.000    5.32      0.67    0.62    0.46    0.55    0.58    0.67    0.62    0.85
+
+== by template / layout
+                       files  recs   micro  strict  lineF1 qty/unit  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+scan:T1                    4     4   0.710   0.500   0.410    1.000   0.000   10.68      0.75    0.75    0.50    0.75    0.50    0.75    0.75    1.00
+scan:T2                    4     4   0.625   0.000   0.643    0.889     nan    4.72      0.75    0.75    0.50    0.50    0.50    0.75    0.50    0.75
+scan:T3                    4     4   0.440   0.000   0.611    0.727   0.000    7.21      0.25    0.25    0.50     nan    0.50    0.50    0.50    1.00
+scan:T4                    4     4   0.656   0.000   0.471    0.875     nan    5.58      1.00    0.75    0.00    0.50    0.75    0.75    0.50    1.00
+scan:T5                    4     4   0.833   0.250   0.552    1.000   0.000    4.73      0.75    0.75    1.00    0.75    0.75    1.00    0.75    1.00
+scan:T6                    4     4   0.452   0.000   0.640    0.188   0.000    5.56      0.50    0.50    0.25    0.25    0.50    0.33    0.75    0.50
+silent errors, scan: {'documents': 24, 'with_wrong_value': 10, 'of_which_flagged': 8, 'silent': 2, 'silent_rate': 0.0833}
+
+== scans by level
+                       files  recs   micro  strict  lineF1 qty/unit  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+heavy                      8     8   0.102   0.000   0.036    0.000   0.000    9.97      0.12    0.00    0.12    0.00    0.00    0.00    0.12    0.50
+light                      8     8   0.952   0.375   1.000    0.778   0.000    5.28      1.00    1.00    0.75    0.86    1.00    1.00    1.00    1.00
+medium                     8     8   0.800   0.000   0.560    0.838   0.000    3.88      0.88    0.88    0.50    0.71    0.75    1.00    0.75    1.00
+
+== scans by format
+                       files  recs   micro  strict  lineF1 qty/unit  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+jpg                        6     6   0.651   0.333   0.528    0.913   0.000    4.84      0.50    0.50    0.67    0.75    0.67    0.67    0.67    1.00
+pdf                        6     6   0.698   0.167   0.510    0.950   0.000   12.87      0.67    0.67    0.67    0.75    0.50    0.75    0.67    1.00
+png                        6     6   0.562   0.000   0.703    0.615     nan    6.03      0.67    0.67    0.33    0.50    0.67    0.67    0.33    0.67
+tiff                       6     6   0.596   0.000   0.480    0.708   0.000    5.12      0.83    0.67    0.17    0.33    0.50    0.60    0.83    0.83

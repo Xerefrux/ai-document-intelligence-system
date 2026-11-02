@@ -1,0 +1,241 @@
+
+== by group
+                       files  recs   micro  strict  lineF1  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+digital_pdf               40    40   0.967   0.500   0.874   0.000    0.01      1.00    1.00    1.00    0.70    1.00    1.00    1.00    1.00
+duplicate                 42    42   0.970   0.476   0.758   0.000    0.01      1.00    1.00    1.00    0.70    1.00    1.00    1.00    1.00
+fault                     32    32   0.966   0.500   0.758   0.000    0.01      1.00    1.00    1.00    0.71    1.00    1.00    1.00    1.00
+multi_invoice              4    15   0.974   0.533   0.825   0.000    0.03      1.00    1.00    1.00    0.77    1.00    1.00    1.00    1.00
+scan                      16    16   0.520   0.125   0.500   0.000    8.30      0.44    0.62    0.50    0.27    0.56    0.53    0.56    0.67
+spreadsheet               18    90   0.906   0.522   1.000   0.000    0.01      1.00    0.54    1.00    1.00    1.00    1.00    0.98    0.63
+
+== by template / layout
+                       files  recs   micro  strict  lineF1  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+digita:H1                 10    10   1.000   1.000   1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+digita:H2                 10    10   1.000   0.000   0.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+digita:H3                 10    10   0.873   0.000   1.000   0.000    0.01      1.00    1.00    1.00    0.00    1.00    1.00    1.00    1.00
+digita:H4                 10    10   1.000   1.000   1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplic:H1                 12    12   1.000   1.000   1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplic:H2                 13    13   1.000   0.000   0.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplic:H3                  9     9   0.875   0.000   1.000     nan    0.01      1.00    1.00    1.00    0.00    1.00    1.00    1.00    1.00
+duplic:H4                  8     8   1.000   1.000   1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault:H1                   8     8   1.000   1.000   1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault:H2                   8     8   1.000   0.000   0.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault:H3                   8     8   0.871   0.000   1.000   0.000    0.01      1.00    1.00    1.00    0.00    1.00    1.00    1.00    1.00
+fault:H4                   8     8   1.000   1.000   1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+multi_:H1                  1     3   1.000   1.000   1.000   0.000    0.03      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+multi_:H2                  1     4   1.000   0.000   0.000   0.000    0.03      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+multi_:H3                  1     3   0.875   0.000   1.000     nan    0.03      1.00    1.00    1.00    0.00    1.00    1.00    1.00    1.00
+multi_:H4                  1     5   1.000   1.000   1.000   0.000    0.04      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+scan:H1                    4     4   0.531   0.250   0.698     nan    9.50      0.50    0.50    0.50    0.50    0.50    0.50    0.50    0.75
+scan:H2                    4     4   0.467   0.000   0.000   0.000   14.85      0.50    0.75    0.25    0.00    0.50    0.50    0.50    0.67
+scan:H3                    4     4   0.406   0.000   0.000     nan   10.10      0.25    0.50    0.50    0.00    0.50    0.50    0.50    0.50
+scan:H4                    4     4   0.677   0.250   0.923   0.000    0.92      0.50    0.75    0.75    0.50    0.75    0.67    0.75    0.75
+spread:grouped             2    12   1.000   1.000   1.000   0.000    0.01      1.00    1.00    1.00    1.00     nan     nan    1.00     nan
+spread:invoice_sheet       9     9   0.970   0.778   1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    0.78    1.00
+spread:ledger              6    63   0.876   0.349     nan   0.000    0.00      1.00    0.35    1.00    1.00    1.00    1.00    1.00    0.50
+spread:multisheet          1     6   1.000   1.000   1.000     nan    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+silent errors, digital_pdf: {'documents': 40, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+silent errors, duplicate: {'documents': 42, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+silent errors, fault: {'documents': 32, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+silent errors, multi_invoice: {'documents': 4, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+silent errors, scan: {'documents': 16, 'with_wrong_value': 7, 'of_which_flagged': 5, 'silent': 2, 'silent_rate': 0.125}
+silent errors, spreadsheet: {'documents': 18, 'with_wrong_value': 2, 'of_which_flagged': 0, 'silent': 2, 'silent_rate': 0.1111}
+
+== scans by level
+                       files  recs   micro  strict  lineF1  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+heavy                      5     5   0.000   0.000   0.000     nan   17.80      0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00
+light                      6     6   0.936   0.333   0.889   0.000    0.94      0.67    1.00    1.00    0.80    1.00    1.00    1.00    1.00
+medium                     5     5   0.553   0.000   0.200   0.000   14.00      0.60    0.80    0.40    0.00    0.60    0.50    0.60    1.00
+
+== scans by format
+                       files  recs   micro  strict  lineF1  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+jpg                        4     4   0.438   0.250   0.552     nan   10.20      0.25    0.50    0.50    0.25    0.50    0.50    0.50    0.50
+pdf                        4     4   0.500   0.000   0.438     nan    9.50      0.50    0.50    0.50    0.25    0.50    0.50    0.50    0.75
+png                        4     4   0.581   0.000   0.500   0.000    7.49      0.25    0.75    0.50    0.25    0.75    0.67    0.75    0.75
+tiff                       4     4   0.567   0.250   0.526   0.000    8.22      0.75    0.75    0.50    0.33    0.50    0.50    0.50    0.67
+
+== errors
+[holdout-pdf-H2-011] H2 
+    line items: matched 0, predicted 0, true 14
+[holdout-pdf-H2-012] H2 
+    line items: matched 0, predicted 0, true 6
+[holdout-pdf-H2-013] H2 
+    line items: matched 0, predicted 0, true 1
+[holdout-pdf-H2-014] H2 
+    line items: matched 0, predicted 0, true 4
+[holdout-pdf-H2-015] H2 
+    line items: matched 0, predicted 0, true 3
+[holdout-pdf-H2-016] H2 
+    line items: matched 0, predicted 5, true 5
+[holdout-pdf-H2-017] H2 
+    line items: matched 0, predicted 6, true 6
+[holdout-pdf-H2-018] H2 
+    line items: matched 0, predicted 2, true 2
+[holdout-pdf-H2-019] H2 
+    line items: matched 0, predicted 0, true 9
+[holdout-pdf-H2-020] H2 
+    line items: matched 0, predicted 4, true 4
+[holdout-pdf-H3-021] H3 
+    customer_name   missed       got=None want='Nimbus Hardware LLC'
+[holdout-pdf-H3-022] H3 
+    customer_name   missed       got=None want='Shapla Medical Supplies & Sons'
+[holdout-pdf-H3-023] H3 
+    customer_name   missed       got=None want='Karim Uddin'
+[holdout-pdf-H3-024] H3 
+    customer_name   missed       got=None want='Vertex Office Solutions Ltd.'
+[holdout-pdf-H3-025] H3 
+    customer_name   missed       got=None want='Nimbus Engineering Limited'
+[holdout-pdf-H3-026] H3 
+    customer_name   missed       got=None want='Harmony Consulting Inc.'
+[holdout-pdf-H3-027] H3 
+    customer_name   missed       got=None want='Northwind Agro Corp.'
+[holdout-pdf-H3-028] H3 
+    customer_name   missed       got=None want='Emily Clark'
+[holdout-pdf-H3-029] H3 
+    customer_name   missed       got=None want='Apex Transport & Sons'
+[holdout-pdf-H3-030] H3 
+    customer_name   missed       got=None want='David Miller'
+[holdout-scan-H1-041] H1 light
+    invoice_number  missed       got=None want='A-28010'
+    line items: matched 7, predicted 7, true 8
+[holdout-scan-H1-042] H1 medium
+    invoice_date    missed       got=None want='2026-04-14'
+    supplier_name   wrong        got='pss Sa foes' want='Nordic Agro Corp.'
+    customer_name   missed       got=None want='Harmony Telecom Inc.'
+    subtotal        missed       got=None want=90.58
+    tax             missed       got=None want=17.21
+    total           missed       got=None want=107.79
+    line items: matched 0, predicted 6, true 2
+[holdout-scan-H1-043] H1 heavy
+    invoice_number  missing_record got=None want='199238'
+    invoice_date    missing_record got=None want='2026-11-18'
+    supplier_name   missing_record got=None want='Prime Laboratories Co.'
+    customer_name   missing_record got=None want='Jamuna Printing Press Pvt Ltd'
+    subtotal        missing_record got=None want=10351.07
+    tax             missing_record got=None want=1863.19
+    total           missing_record got=None want=12214.26
+    currency        missing_record got=None want='BDT'
+    line items: matched 0, predicted 0, true 4
+[holdout-scan-H2-045] H2 medium
+    invoice_number  missed       got=None want='100737'
+    supplier_name   wrong        got='IE re mem' want='Sunrise Transport'
+    customer_name   missed       got=None want='Stellar Telecom Inc.'
+    line items: matched 0, predicted 3, true 4
+[holdout-scan-H2-046] H2 heavy
+    invoice_number  missed       got=None want='144461'
+    invoice_date    missed       got=None want='2025-03-24'
+    supplier_name   wrong        got='en rene merece' want='Northwind Digital Services Inc.'
+    customer_name   missed       got=None want='Shapla Pharma Pvt Ltd'
+    subtotal        missed       got=None want=319.07
+    tax             missed       got=None want=14.36
+    total           missed       got=None want=301.52
+    currency        missed       got=None want='BDT'
+    line items: matched 0, predicted 3, true 4
+[holdout-scan-H2-047] H2 light
+    line items: matched 0, predicted 0, true 3
+[holdout-scan-H2-048] H2 medium
+    supplier_name   wrong        got='SE ae ee eee meoS SS iS is ate cee eaa' want='Alpha Foods GmbH'
+    customer_name   missed       got=None want='Greenfield Constructions LLC'
+    subtotal        missed       got=None want=168.72
+    tax             missed       got=None want=25.31
+    total           missed       got=None want=194.03
+    line items: matched 0, predicted 0, true 4
+[holdout-scan-H3-049] H3 heavy
+    invoice_number  missed       got=None want='SI-26-147'
+    invoice_date    missed       got=None want='2026-11-21'
+    due_date        missed       got=None want='2027-01-05'
+    supplier_name   wrong        got='wate teeSa' want='Quantum Pharma Corp.'
+    customer_name   missed       got=None want='Harmony Pharma Co.'
+    subtotal        missed       got=None want=4326.24
+    tax             missed       got=None want=432.62
+    total           missed       got=None want=4758.86
+    currency        wrong        got='USD' want='EUR'
+    line items: matched 0, predicted 3, true 4
+[holdout-scan-H3-050] H3 light
+    customer_name   missed       got=None want='Vertex Energy LLC'
+    line items: matched 0, predicted 0, true 2
+[holdout-scan-H3-051] H3 medium
+    invoice_number  wrong        got='$1-25-679' want='SI-25-679'
+    customer_name   missed       got=None want='Atlas Traders & Sons'
+    line items: matched 0, predicted 0, true 5
+[holdout-scan-H3-052] H3 heavy
+    invoice_number  missing_record got=None want='BD202500753'
+    invoice_date    missing_record got=None want='2025-08-16'
+    due_date        missing_record got=None want='2025-09-15'
+    supplier_name   missing_record got=None want='Meghna Hardware Inc.'
+    customer_name   missing_record got=None want='Anika Chowdhury'
+    subtotal        missing_record got=None want=1978.61
+    tax             missing_record got=None want=98.93
+    total           missing_record got=None want=2118.9
+    currency        missing_record got=None want='BDT'
+    line items: matched 0, predicted 0, true 4
+[holdout-scan-H4-053] H4 light
+    invoice_number  wrong        got='S1-25-477' want='SI-25-477'
+[holdout-scan-H4-054] H4 medium
+    customer_name   missed       got=None want='Apex Security Services PLC'
+[holdout-scan-H4-055] H4 heavy
+    invoice_number  missing_record got=None want='INV-2025-53030'
+    invoice_date    missing_record got=None want='2025-05-18'
+    supplier_name   missing_record got=None want='Pacific Office Solutions'
+    customer_name   missing_record got=None want='Cedar Textiles Corp.'
+    subtotal        missing_record got=None want=177.94
+    tax             missing_record got=None want=8.9
+    total           missing_record got=None want=186.84
+    currency        missing_record got=None want='USD'
+    line items: matched 0, predicted 0, true 2
+[holdout-sheet-xlsx_formulas-061]  
+    total           wrong        got=721.31 want=649.18
+[holdout-sheet-xlsx_formulas-062]  
+    total           wrong        got=1836.274 want=1861.94
+[holdout-ledger-xlsx-066]  
+    invoice_date    missed       got=None want='2025-08-23'
+    currency        missed       got=None want='EUR'
+[holdout-ledger-xlsx-066]  
+    invoice_date    missed       got=None want='2026-05-20'
+    currency        missed       got=None want='USD'
+[holdout-ledger-xlsx-066]  
+    invoice_date    missed       got=None want='2026-02-21'
+    currency        missed       got=None want='GBP'
+[holdout-ledger-xlsx-066]  
+    invoice_date    missed       got=None want='2026-08-21'
+    currency        missed       got=None want='INR'
+[holdout-ledger-xlsx-066]  
+    invoice_date    missed       got=None want='2025-12-14'
+    currency        missed       got=None want='BDT'
+[holdout-ledger-xlsx-066]  
+    invoice_date    missed       got=None want='2026-03-25'
+    currency        missed       got=None want='USD'
+[holdout-ledger-xlsx-066]  
+    invoice_date    missed       got=None want='2025-01-26'
+    currency        missed       got=None want='INR'
+[holdout-ledger-xlsx-066]  
+    invoice_date    missed       got=None want='2025-05-23'
+    currency        missed       got=None want='CAD'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2026-11-23'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-01-16'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2026-05-19'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-03-28'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-08-15'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-03-13'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-10-25'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2026-01-14'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2026-04-27'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-06-19'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-10-13'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-11-21'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2026-10-17'
+[holdout-ledger-xlsx-067]  
+    invoice_date    missed       got=None want='2025-08-17'

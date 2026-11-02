@@ -1,0 +1,178 @@
+== overall (every valid file, deliberately broken files excluded)
+files                     190
+completed                 190   success rate 1.000
+failed or crashed         0   failure rate 0.000
+flagged for review       19 of 106 ordinary files (0.179); fault and duplicate files are left out because they are flagged on purpose
+seconds per file          median 0.01   p90 0.73   max 19.0
+seconds per page          median 0.006   p90 0.73
+batch wall time           76.6 s for 204 files with 2 parallel jobs
+  digital_pdf    files  60  failed  0  median s   0.01  p90 s   0.01
+  duplicate      files  52  failed  0  median s   0.01  p90 s   0.01
+  fault          files  32  failed  0  median s   0.01  p90 s   0.01
+  multi_invoice  files   4  failed  0  median s   0.02  p90 s   0.03
+  scan           files  24  failed  0  median s   1.18  p90 s  16.91
+  spreadsheet    files  18  failed  0  median s   0.01  p90 s   0.03
+
+
+== by group
+                       files  recs   micro  strict  lineF1 qty/unit  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+digital_pdf               60    60   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplicate                 42    42   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault                     32    32   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+multi_invoice              4    15   1.000   1.000   1.000    1.000   0.000    0.02      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+scan                      24    24   0.635   0.333   0.681    0.920   0.182    1.18      0.54    0.62    0.67    0.60    0.67    0.62    0.67    0.70
+spreadsheet               18    85   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+
+== by template / layout
+                       files  recs   micro  strict  lineF1 qty/unit  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+digita:T1                 10    10   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+digita:T2                 10    10   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+digita:T3                 10    10   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00     nan    1.00    1.00    1.00    1.00
+digita:T4                 10    10   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+digita:T5                 10    10   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+digita:T6                 10    10   1.000   1.000   1.000    1.000     nan    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplic:T1                 10    10   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplic:T2                  8     8   1.000   1.000   1.000    1.000     nan    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplic:T4                  8     8   1.000   1.000   1.000    1.000     nan    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplic:T5                  8     8   1.000   1.000   1.000    1.000     nan    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+duplic:T6                  8     8   1.000   1.000   1.000    1.000     nan    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault:T1                   6     6   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault:T2                   6     6   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault:T3                   2     2   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00     nan    1.00    1.00    1.00     nan
+fault:T4                   8     8   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault:T5                   4     4   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+fault:T6                   6     6   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+multi_:T1                  1     3   1.000   1.000   1.000    1.000     nan    0.02      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+multi_:T2                  1     4   1.000   1.000   1.000    1.000   0.000    0.02      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+multi_:T3                  1     3   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00     nan    1.00    1.00    1.00    1.00
+multi_:T6                  1     5   1.000   1.000   1.000    1.000   0.000    0.03      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+scan:T1                    4     4   0.742   0.750   0.824    1.000   0.000    1.67      0.75    0.75    0.75    0.75    0.75    0.75    0.75    0.67
+scan:T2                    4     4   0.750   0.500   0.897    0.923     nan    0.87      0.75    0.75    0.75    0.75    0.75    0.75    0.75    0.75
+scan:T3                    4     4   0.480   0.250   0.634    0.923   0.286    7.50      0.50    0.50    0.50     nan    0.50    0.25    0.50    1.00
+scan:T4                    4     4   0.781   0.500   0.514    0.944     nan    1.22      0.75    0.75    0.75    0.75    0.75    0.75    0.75    1.00
+scan:T5                    4     4   0.600   0.000   0.690    0.950   0.000    0.80      0.00    0.50    0.75    0.25    0.75    1.00    0.75    1.00
+scan:T6                    4     4   0.419   0.000   0.471    0.500   0.000    9.48      0.50    0.50    0.50    0.50    0.50    0.33    0.50    0.00
+spread:grouped             2    10   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00     nan     nan    1.00     nan
+spread:invoice_sheet       9     9   1.000   1.000   1.000    1.000   0.000    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+spread:ledger              6    60   1.000   1.000     nan      nan   0.000    0.00      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+spread:multisheet          1     6   1.000   1.000   1.000    1.000     nan    0.01      1.00    1.00    1.00    1.00    1.00    1.00    1.00    1.00
+silent errors, digital_pdf: {'documents': 60, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+silent errors, duplicate: {'documents': 42, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+silent errors, fault: {'documents': 32, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+silent errors, multi_invoice: {'documents': 4, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+silent errors, scan: {'documents': 24, 'with_wrong_value': 6, 'of_which_flagged': 6, 'silent': 0, 'silent_rate': 0.0}
+silent errors, spreadsheet: {'documents': 18, 'with_wrong_value': 0, 'of_which_flagged': 0, 'silent': 0, 'silent_rate': 0.0}
+
+== scans by level
+                       files  recs   micro  strict  lineF1 qty/unit  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+heavy                      8     8   0.034   0.000   0.000      nan   0.400   16.37      0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.33
+light                      8     8   0.968   0.625   0.966    0.900   0.000    0.97      0.88    1.00    1.00    1.00    1.00    1.00    1.00    0.86
+medium                     8     8   0.883   0.375   0.959    0.936   0.000    0.77      0.75    0.88    1.00    0.71    1.00    0.83    1.00    0.86
+
+== scans by format
+                       files  recs   micro  strict  lineF1 qty/unit  halluc   med s   invoice invoice supplie custome subtota     tax   total currenc
+jpg                        6     6   0.558   0.167   0.680    0.926   0.200    0.81      0.33    0.50    0.67    0.50    0.67    0.50    0.67    0.67
+pdf                        6     6   0.674   0.500   0.741    1.000   0.200    1.67      0.50    0.67    0.67    0.50    0.67    0.75    0.67    1.00
+png                        6     6   0.646   0.333   0.788    0.769     nan    1.32      0.67    0.67    0.67    0.67    0.67    0.67    0.67    0.50
+tiff                       6     6   0.660   0.333   0.542    0.962   0.000    0.97      0.67    0.67    0.67    0.67    0.67    0.60    0.67    0.67
+
+== errors
+[dev-scan-T1-063] T1 heavy
+    invoice_number  missing_record got=None want='2026/20246'
+    invoice_date    missing_record got=None want='2026-01-24'
+    due_date        missing_record got=None want='2026-01-31'
+    supplier_name   missing_record got=None want='Alpha Printing Press LLC'
+    customer_name   missing_record got=None want='Pioneer Cleaning Services GmbH'
+    subtotal        missing_record got=None want=9444.64
+    tax             missing_record got=None want=944.46
+    total           missing_record got=None want=10389.1
+    currency        missing_record got=None want='GBP'
+    line items: matched 0, predicted 0, true 6
+[dev-scan-T2-065] T2 medium
+    due_date        missed       got=None want='2026-06-04'
+[dev-scan-T2-066] T2 heavy
+    invoice_number  missing_record got=None want='SI-26-348'
+    invoice_date    missing_record got=None want='2026-04-23'
+    due_date        missing_record got=None want='2026-04-30'
+    supplier_name   missing_record got=None want='Apex Cleaning Services PLC'
+    customer_name   missing_record got=None want='Farhana Rahman'
+    subtotal        missing_record got=None want=4363.86
+    tax             missing_record got=None want=787.68
+    total           missing_record got=None want=4953.14
+    currency        missing_record got=None want='EUR'
+    line items: matched 0, predicted 0, true 3
+[dev-scan-T3-069] T3 heavy
+    invoice_number  missed       got=None want='2026/45209'
+    invoice_date    missed       got=None want='2026-11-16'
+    supplier_name   wrong        got='cece' want='Atlas Energy Inc.'
+    subtotal        missed       got=None want=1957.73
+    tax             missed       got=None want=371.97
+    total           missed       got=None want=2329.7
+    currency        hallucinated got='USD' want=None
+    line items: matched 0, predicted 3, true 2
+[dev-scan-T3-071] T3 medium
+    tax             wrong        got=172.06 want=171.06
+    line items: matched 7, predicted 7, true 8
+[dev-scan-T3-072] T3 heavy
+    invoice_number  missed       got=None want='INV0030121'
+    invoice_date    missed       got=None want='2026-06-18'
+    supplier_name   wrong        got='eee.' want='Northwind Pharma Ltd.'
+    customer_name   hallucinated got='La saal a’' want=None
+    subtotal        missed       got=None want=46098.99
+    tax             missed       got=None want=6569.11
+    total           missed       got=None want=50404.04
+    line items: matched 0, predicted 3, true 6
+[dev-scan-T4-075] T4 heavy
+    invoice_number  missed       got=None want='INV-2026-19587'
+    invoice_date    missed       got=None want='2026-06-13'
+    due_date        missed       got=None want='2026-06-20'
+    supplier_name   wrong        got='© if ae Sa Scr' want='Quantum Digital Services Ltd.'
+    customer_name   missed       got=None want='Alpha Energy'
+    subtotal        missed       got=None want=3706.44
+    tax             missed       got=None want=333.58
+    total           missed       got=None want=3669.38
+    line items: matched 0, predicted 9, true 8
+[dev-scan-T5-077] T5 medium
+    invoice_number  missed       got=None want='INV0030447'
+    due_date        missed       got=None want='2025-08-11'
+    customer_name   missed       got=None want='Shapla Electronics'
+[dev-scan-T5-078] T5 heavy
+    invoice_number  missed       got=None want='SI-25-654'
+    invoice_date    missed       got=None want='2025-11-23'
+    supplier_name   wrong        got='Pia)' want='Zenith Hardware Co.'
+    customer_name   missed       got=None want='Nimbus Hardware Corp.'
+    subtotal        missed       got=None want=46440.81
+    total           missed       got=None want=44118.77
+    line items: matched 0, predicted 4, true 5
+[dev-scan-T5-079] T5 light
+    invoice_number  missed       got=None want='INV-2026-32833'
+[dev-scan-T5-080] T5 medium
+    invoice_number  missed       got=None want='INV0042983'
+    invoice_date    missed       got=None want='2025-05-19'
+    customer_name   wrong        got='Hes' want='Northwind Printing Press Co.'
+[dev-scan-T6-081] T6 heavy
+    invoice_number  missing_record got=None want='INV-2026-81430'
+    invoice_date    missing_record got=None want='2026-01-26'
+    supplier_name   missing_record got=None want='Summit Office Solutions Ltd.'
+    customer_name   missing_record got=None want='Eastern Digital Services Co.'
+    subtotal        missing_record got=None want=4538.56
+    tax             missing_record got=None want=816.94
+    total           missing_record got=None want=5355.5
+    currency        missing_record got=None want='EUR'
+    line items: matched 0, predicted 0, true 2
+[dev-scan-T6-082] T6 light
+    currency        missed       got=None want='USD'
+    line items: matched 4, predicted 4, true 6
+[dev-scan-T6-083] T6 medium
+    currency        missed       got=None want='USD'
+    line items: matched 0, predicted 0, true 2
+[dev-scan-T6-084] T6 heavy
+    invoice_number  missing_record got=None want='BD202559271'
+    invoice_date    missing_record got=None want='2025-08-26'
+    supplier_name   missing_record got=None want='Atlas Constructions Co.'
+    customer_name   missing_record got=None want='Aurora Printing Press Limited'
+    subtotal        missing_record got=None want=2587.78
+    tax             missing_record got=None want=491.68
+    total           missing_record got=None want=3079.46
+    currency        missing_record got=None want='USD'
+    line items: matched 0, predicted 0, true 3

@@ -1,0 +1,34 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Runtime data and secrets
+data/
+.env
+*.db
+*.db-wal
+*.db-shm
+*.log
+
+# Frontend tooling (the production build is committed under docintel/static)
+frontend/node_modules/
+frontend/.vite/
+
+# Generated evaluation material (rebuilt by python -m evaluation.build, see EVALUATION.md)
+evaluation/dataset/
+evaluation/work/
+
+# Local build notes
+PROGRESS.md
+.DS_Store

@@ -1,0 +1,13 @@
+Front end tests (vitest), run on 2026-11-01T20:02Z
+
+
+ RUN  v3.2.7 /home/claude/docintel/frontend
+
+ ✓ src/components/ui.test.tsx (5 tests) 172ms
+ ✓ src/format.test.ts (5 tests) 28ms
+
+ Test Files  2 passed (2)
+      Tests  10 passed (10)
+   Start at  02:02:14
+   Duration  3.13s (transform 268ms, setup 199ms, collect 420ms, tests 200ms, environment 1.64s, prepare 247ms)
+

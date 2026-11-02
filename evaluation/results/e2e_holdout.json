@@ -1,0 +1,90 @@
+{
+ "files_uploaded": 138,
+ "documents_processed": 124,
+ "completed": 117,
+ "failed": 7,
+ "wall_seconds": 7.5,
+ "faults": {
+  "ambiguous_date": {
+   "n": 3,
+   "detected": 3,
+   "not_printable": 1
+  },
+  "due_before_date": {
+   "n": 3,
+   "detected": 3,
+   "not_printable": 1
+  },
+  "line_amount_wrong": {
+   "n": 4,
+   "detected": 4,
+   "not_printable": 0
+  },
+  "missing_date": {
+   "n": 4,
+   "detected": 4,
+   "not_printable": 0
+  },
+  "missing_number": {
+   "n": 4,
+   "detected": 4,
+   "not_printable": 0
+  },
+  "subtotal_wrong": {
+   "n": 4,
+   "detected": 4,
+   "not_printable": 0
+  },
+  "tax_wrong": {
+   "n": 4,
+   "detected": 4,
+   "not_printable": 0
+  },
+  "total_wrong": {
+   "n": 4,
+   "detected": 4,
+   "not_printable": 0
+  }
+ },
+ "fault_detection_rate": 1.0,
+ "duplicates": {
+  "exact_file": {
+   "n": 10,
+   "correct": 10
+  },
+  "near": {
+   "n": 10,
+   "correct": 10
+  },
+  "negative": {
+   "n": 12,
+   "correct": 12
+  },
+  "original_not_flagged": {
+   "n": 10,
+   "correct": 10
+  },
+  "reissue": {
+   "n": 10,
+   "correct": 10
+  }
+ },
+ "broken_files": {
+  "empty": {
+   "n": 3,
+   "as_expected": 3
+  },
+  "failed": {
+   "n": 7,
+   "as_expected": 7
+  },
+  "rejected": {
+   "n": 4,
+   "as_expected": 4
+  }
+ },
+ "broken_misses": [],
+ "clean_invoices": 40,
+ "clean_sent_to_review": 0,
+ "clean_sent_to_review_ids": []
+}

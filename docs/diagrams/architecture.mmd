@@ -1,0 +1,37 @@
+flowchart LR
+    subgraph Clients
+        direction TB
+        UI["React web app"]
+        CLI["docintel CLI"]
+    end
+    subgraph API["FastAPI service (docintel serve)"]
+        direction TB
+        SEC["Auth, rate limit,<br/>size caps, security headers"] --> RT["REST routes under /api"]
+        RT --> UP["Upload: sniff type, hash,<br/>store, enqueue"]
+        RT --> SR["Search: keyword (FTS5),<br/>semantic (vectors), filters"]
+    end
+    subgraph Workers["Workers (threads in the API process, or docintel worker processes)"]
+        direction TB
+        CL["1. Claim a job<br/>(UPDATE ... RETURNING)"] --> RD["2. Read: PDF text layer,<br/>OCR or spreadsheet"]
+        RD --> EX["3. Extract: rules,<br/>optional AI, merge"]
+        EX --> VA["4. Validate,<br/>check duplicates"]
+        VA --> IX["5. Save and index"]
+    end
+    subgraph Storage
+        direction TB
+        DB[("SQLite, WAL mode:<br/>documents, pages, records,<br/>issues, jobs, indexes")]
+        FS[("uploads folder")]
+    end
+    OCR["OCR process pool<br/>(Tesseract or RapidOCR)"]
+    LLM["Gemini or OpenAI<br/>(optional)"]
+    UI --> SEC
+    CLI --> DB
+    UP --> FS
+    UP --> DB
+    SR --> DB
+    RT --> DB
+    CL --> DB
+    RD --> FS
+    RD --> OCR
+    EX -.-> LLM
+    IX --> DB

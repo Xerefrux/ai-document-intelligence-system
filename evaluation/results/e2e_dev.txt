@@ -1,0 +1,27 @@
+end to end check, split dev
+158 files uploaded through the API, 144 queued and processed (137 completed, 7 failed) in 8.0 s
+
+injected faults: was the expected code raised?
+  ambiguous_date         3 of 3     (1 more files could not print this fault and are left out)
+  due_before_date        4 of 4  
+  line_amount_wrong      4 of 4  
+  missing_date           4 of 4  
+  missing_number         4 of 4  
+  subtotal_wrong         4 of 4  
+  tax_wrong              4 of 4  
+  total_wrong            4 of 4  
+  overall detection rate 1.000
+
+duplicates
+  exact_file              10 of 10  correct
+  near                    10 of 10  correct
+  negative                12 of 12  correct
+  original_not_flagged    10 of 10  correct
+  reissue                 10 of 10  correct
+
+broken and hostile files: did the system end where it should?
+  empty        3 of 3   as expected
+  failed       7 of 7   as expected
+  rejected     4 of 4   as expected
+
+clean invoices sent to manual review: 0 of 60
