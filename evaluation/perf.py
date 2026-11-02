@@ -12,10 +12,15 @@ from __future__ import annotations
 
 import argparse
 import json
-import resource
+import sys
 import tempfile
 import time
 from pathlib import Path
+
+try:
+    import resource  # Linux and macOS only
+except ImportError:  # Windows: the memory figure is left out
+    resource = None
 
 from fastapi.testclient import TestClient
 from sqlalchemy import select
@@ -26,6 +31,14 @@ from docintel.db.engine import session_scope
 from docintel.db.models import Record
 from docintel.extraction.normalize import normalize_invoice_number
 from docintel.jobs.worker import Worker
+
+
+def peak_memory_mb() -> int | None:
+    """Highest memory use of this process so far, or None where the system cannot say (Windows)."""
+    if resource is None:
+        return None
+    peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    return round(peak / (1024 * 1024 if sys.platform == "darwin" else 1024))  # macOS reports bytes, Linux kilobytes
 
 
 def main() -> None:
@@ -70,7 +83,7 @@ def main() -> None:
         "file": pdf.name, "size_mb": round(len(data) / 1e6, 1), "pages": truth["pages"], "invoices_in_file": truth["invoices"],
         "status": doc["status"], "upload_seconds": round(upload_s, 2), "processing_seconds": round(process_s, 1),
         "pages_per_second": round(truth["pages"] / process_s, 1), "invoices_found": len(rows), "invoice_numbers_right": right_number,
-        "totals_right": int(right_total), "records_needing_review": needs_review, "peak_memory_mb": round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024),
+        "totals_right": int(right_total), "records_needing_review": needs_review, "peak_memory_mb": peak_memory_mb(),
         "search": q,
     }
     print(json.dumps(out, indent=1))

@@ -16,6 +16,7 @@ import logging
 import math
 import os
 import subprocess
+import sys
 import threading
 import time
 from concurrent.futures import Future, ProcessPoolExecutor
@@ -336,20 +337,38 @@ class OcrTask:
 
 _PDF_CACHE: dict[str, object] = {}
 
+# Windows will not delete a file while any handle to it is open. A PDF kept open here, in the API process or in an
+# OCR process, would stop that document from being deleted. On Windows the file is therefore read into memory and
+# closed at once. Everywhere else it is opened in place, which costs no memory.
+_OPEN_FROM_MEMORY = sys.platform == "win32"
 
-def _cached_pdf(path: str):
-    """The caller holds PDFIUM_LOCK."""
+
+def _open_pdf(path: str):
     import pypdfium2 as pdfium
 
-    doc = _PDF_CACHE.get(path)
-    if doc is None:
+    if _OPEN_FROM_MEMORY:
+        with open(path, "rb") as fh:
+            return pdfium.PdfDocument(fh.read())
+    return pdfium.PdfDocument(path)
+
+
+def release_cached_pdfs() -> None:
+    """Close the PDF this process keeps open between the pages of one document."""
+    with PDFIUM_LOCK:
         for old in list(_PDF_CACHE.values()):
             try:
                 old.close()  # type: ignore[attr-defined]
             except Exception:
                 pass
         _PDF_CACHE.clear()
-        doc = pdfium.PdfDocument(path)
+
+
+def _cached_pdf(path: str):
+    """The caller holds PDFIUM_LOCK."""
+    doc = _PDF_CACHE.get(path)
+    if doc is None:
+        release_cached_pdfs()
+        doc = _open_pdf(path)
         _PDF_CACHE[path] = doc
     return doc
 

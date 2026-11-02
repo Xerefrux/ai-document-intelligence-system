@@ -224,7 +224,16 @@ def delete_document(request: Request, doc_id: str):
             raise ApiError(409, "ALREADY_PROCESSING", "This document is being processed. Cancel it first, then delete it.")
         stored = d.stored_name
         s.delete(d)
-    (settings.uploads_dir / stored).unlink(missing_ok=True)
+    _remove_file(settings.uploads_dir / stored)
     for p in settings.previews_dir.glob(f"{doc_id}-*.png"):
-        p.unlink(missing_ok=True)
+        _remove_file(p)
     return Response(status_code=204)
+
+
+def _remove_file(path) -> None:
+    """Delete a stored file. The record is already gone, so if the system refuses (Windows does while any program still
+    has the file open) the refusal is logged and the request still succeeds. A stray file is harmless."""
+    try:
+        path.unlink(missing_ok=True)
+    except OSError as exc:
+        log.warning("Could not delete %s: %s", path, exc)

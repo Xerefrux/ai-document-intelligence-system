@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import mimetypes
 import time
 import uuid
 from contextlib import asynccontextmanager
@@ -102,7 +103,18 @@ def create_app(settings: Settings | None = None, *, start_workers: bool | None =
     return app
 
 
+# Windows takes file types from its registry. On a machine where ".js" is listed as text/plain the browser refuses
+# to run the page's script and shows a blank screen, so the types the web app needs are set here and not left to the system.
+_WEB_TYPES = (
+    ("text/javascript", ".js"), ("text/javascript", ".mjs"), ("text/css", ".css"), ("text/html", ".html"),
+    ("application/json", ".json"), ("image/svg+xml", ".svg"), ("image/png", ".png"), ("image/x-icon", ".ico"),
+    ("font/woff2", ".woff2"), ("font/woff", ".woff"),
+)
+
+
 def _mount_ui(app: FastAPI) -> None:
+    for mime, ext in _WEB_TYPES:
+        mimetypes.add_type(mime, ext)
     root = STATIC_DIR.resolve()
     assets = root / "assets"
     if assets.is_dir():

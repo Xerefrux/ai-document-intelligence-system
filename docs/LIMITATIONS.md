@@ -27,7 +27,7 @@ Written so that nobody has to find these out the hard way. Numbers are in `EVALU
 - **Vector search reads every vector for each query.** Fine for tens of thousands of records. Not for millions.
 - **The rate limiter is in memory** and counts per process.
 - **There is no Docker image** in this submission. I could not build or run one where I worked, and I did not want to ship one I had not run.
-- **Developed and tested on Linux** with Python 3.13. I did not run it on Windows or macOS, so I cannot promise it works there. If something breaks, `docintel doctor` is the first place to look.
+- **Developed and tested on Linux** with Python 3.13. I did not run it on Windows or macOS, so I cannot promise it works there. What I could check without Windows: every dependency has a Windows build for Python 3.11 to 3.14, the tests pass under a strict ASCII default text encoding, and `tests/test_windows.py` forces the Windows only problems I know of. If something breaks, `docintel doctor` is the first place to look, and `python -m docintel` works when the `docintel` launcher does not.
 - **No user accounts.** One shared API key; the audit trail records what changed and when but not who.
 - Reprocessing a document replaces its records. Manual corrections would be lost, so the API refuses unless the request says `confirm: true`.
 - The front end has only 10 small automated tests (formatting helpers and a few components). The pages themselves are type checked and I checked them by hand in a browser at desktop and phone width. The back end is covered by the pytest suite.

@@ -14,7 +14,7 @@ Other documents: [architecture and diagram](docs/ARCHITECTURE.md) · [database s
 
 ## Quick start
 
-You need Python 3.11 or newer (developed and tested with 3.13 on Linux; I did not run it on Windows or macOS). Tesseract is optional.
+You need 64-bit Python 3.11 or newer (developed and tested with 3.13 on Linux; I did not run it on Windows or macOS, see the Windows paragraph below for what I could check). Tesseract is optional.
 
 ```bash
 git clone https://github.com/Xerefrux/ai-document-intelligence-system.git
@@ -31,6 +31,19 @@ docintel serve                       # then open http://127.0.0.1:8000
 
 The web app is already built and is served by the same process, so Python is all you need. Interactive API documentation is at `http://127.0.0.1:8000/api/docs`.
 
+**Windows (PowerShell, or the terminal inside VS Code).** Install 64-bit Python from python.org (tick "Add python.exe to PATH") and Git for Windows, open the project folder, and run:
+
+```powershell
+py -m venv .venv
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned   # once; lets PowerShell run the activate script
+.venv\Scripts\Activate.ps1
+pip install -e ".[dev]"
+python -m docintel doctor
+python -m docintel --data-dir demo-data serve                          # then open http://127.0.0.1:8000
+```
+
+`python -m docintel` is the same program as the `docintel` command and still works when the launcher is not on the PATH. I could not run Windows where I worked. What I did check: every dependency has a Windows build for Python 3.11 to 3.14 (64-bit), the whole test suite passes with a strict ASCII default text encoding (stricter than the Windows code page), and `tests/test_windows.py` forces the Windows only problems I know of (a wrong registry entry for `.js` files, and an open file that blocks deletion). The first real Windows run is yours. If RapidOCR fails to load with a DLL error, install the Microsoft Visual C++ Redistributable (x64).
+
 **OCR.** For scans and images the system uses Tesseract when it is installed (`sudo apt install tesseract-ocr`, `brew install tesseract`, or the Windows installer from the UB Mannheim page, with `tesseract` on your PATH). Without it, it falls back to RapidOCR, which comes with `pip install` and needs nothing else. On my test scans the two engines scored about the same (see EVALUATION.md); RapidOCR more often drops the spaces between words on blurred text. `docintel doctor` tells you which one you have. Scanned PDFs and photos need one of them; digital PDFs and spreadsheets need neither.
 
 **AI extraction (optional).** Everything works without it, and every number in this repository was measured without it. To switch it on, set `GEMINI_API_KEY` (or `OPENAI_API_KEY` and `OPENAI_MODEL`) before `docintel serve`. See [Honest limits](#honest-limits) for what that does and does not mean.
@@ -41,7 +54,7 @@ The assessment has seven tasks. Here is where each one lives and what checks it.
 
 | Task | Where | Checked by |
 |---|---|---|
-| 1. Document processing: PDF, JPG, PNG, TIFF, XLSX, XLS, CSV; text layer, OCR, spreadsheets; multi-page, multi-sheet, poor quality, corrupted | `docintel/pipeline/` | `tests/test_readers.py` (30), failure tests in `tests/test_system.py`, `evaluation/e2e.py` |
+| 1. Document processing: PDF, JPG, PNG, TIFF, XLSX, XLS, CSV; text layer, OCR, spreadsheets; multi-page, multi-sheet, poor quality, corrupted | `docintel/pipeline/` | `tests/test_readers.py` (30), `tests/test_windows.py` (5), failure tests in `tests/test_system.py`, `evaluation/e2e.py` |
 | 2. Extraction as JSON, never inventing a value | `docintel/extraction/` | `tests/test_extraction.py` (27), `tests/test_normalize.py` (28), `tests/test_llm.py` (18), `evaluation/` |
 | 3. Validation: missing fields, bad numbers, duplicates, subtotal, tax, line item and total checks, flag for review | `docintel/validation/` | `tests/test_validation.py` (13), `tests/test_system.py`, `evaluation/e2e.py` |
 | 4. REST API: upload, status, results, search, manual correction, reprocess failed jobs, background work | `docintel/api/`, `docintel/jobs/` | `tests/test_system.py` (38) |
@@ -145,7 +158,7 @@ The full list, with ranges, is in `docintel/config.py`; `GET /api/config` shows 
 ## Tests
 
 ```bash
-pytest                      # 154 tests, about 25 seconds
+pytest                      # 159 tests, about 25 seconds
 pytest tests/test_system.py # API, queue and workers, search, security, failure scenarios
 ```
 

@@ -12,6 +12,8 @@ docintel --data-dir ./demo-data doctor
 docintel --data-dir ./demo-data serve  # then open http://127.0.0.1:8000
 ```
 
+On Windows use the commands in the Windows paragraph of the README (`py -m venv .venv`, then `python -m docintel ...` in place of `docintel ...`). Open the app in Edge or Chrome, not in the browser built into VS Code.
+
 The `doctor` line is worth showing on screen once: it prints the Python version, which OCR engine was found, and whether the database and the data folder are writable.
 
 ## 1. What it is (1 minute)
@@ -66,7 +68,7 @@ In a terminal:
 pytest -p no:warnings
 ```
 
-It ends with a line like `154 passed in 25s`. Do not add `-q` here: the project already sets it, and a second one hides that last line.
+It ends with a line like `159 passed in 25s`. Do not add `-q` here: the project already sets it, and a second one hides that last line.
 
 Then open `EVALUATION.md` and walk through three things: the table after fixes, the first blind run (97% of fields right but only half of the documents completely right), and the scan table by damage level. Close on the limits: synthetic documents, same author, the AI path not measured, SQLite only.
 
