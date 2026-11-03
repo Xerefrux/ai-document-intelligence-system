@@ -153,7 +153,7 @@ def main() -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     wb.save(dest)
     log.append(("cross-check/register.xlsx", "A register of invoices to compare the six PDFs in invoices/ against.",
-                f"Compare finds: {len(truth) - 2} matches, 1 mismatch (invoice {truth[1]['invoice_number']}, total off by 5.00), 1 invoice missing from the register ({truth[4]['invoice_number']}), 1 register row with no invoice (REG-9999). The register itself also shows TOTAL_MISMATCH on the changed row, because its subtotal plus tax no longer gives that total."))
+                f"Compare finds: {len(truth) - 2} matches, 1 mismatch (invoice {truth[1]['invoice_number']}, total off by 5.00), 1 invoice missing from the register ({truth[4]['invoice_number']}), 1 register row with no invoice (REG-9999). The register itself shows TOTAL_MISMATCH on three rows: the changed one, whose subtotal plus tax no longer gives its total, and the rows for the two invoices that include shipping ({truth[2]['invoice_number']} and {truth[5]['invoice_number']}), because the register has no shipping column."))
 
     # 8. files that should fail, and how
     corrupt = {e["file"].split("/")[-1]: e for e in ENTRIES if e["group"] == "corrupt"}

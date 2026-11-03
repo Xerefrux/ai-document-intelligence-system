@@ -158,7 +158,7 @@ The full list, with ranges, is in `docintel/config.py`; `GET /api/config` shows 
 ## Tests
 
 ```bash
-pytest                      # 159 tests, about 25 seconds
+pytest                      # 159 tests, about half a minute (it depends on the machine)
 pytest tests/test_system.py # API, queue and workers, search, security, failure scenarios
 ```
 
