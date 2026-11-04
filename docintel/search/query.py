@@ -246,7 +246,8 @@ def search(session: Session, settings: Settings, q: str, *, mode: str = "hybrid"
         ids = [r[0] for r in session.execute(text(f"SELECT r.id FROM records r JOIN documents d ON d.id = r.document_id WHERE 1=1 {where} ORDER BY r.created_at DESC, r.record_index LIMIT :lim OFFSET :off"), {**params, "lim": limit, "off": offset}).all()]
         total = session.execute(text(f"SELECT count(*) FROM records r JOIN documents d ON d.id = r.document_id WHERE 1=1 {where}"), params).scalar() or 0
         rows = _record_rows(session, ids)
-        out["records"] = [rows[i] for i in ids if i in rows]
+        # Same fields as a real hit (nothing matched a text query, so no score, no snippet), so no caller has to special case "no query".
+        out["records"] = [{**rows[i], "score": 0.0, "matched_by": [], "snippet": None} for i in ids if i in rows]
         out["total_records"] = int(total)
         out["took_ms"] = round((time.perf_counter() - t0) * 1000, 1)
         return out

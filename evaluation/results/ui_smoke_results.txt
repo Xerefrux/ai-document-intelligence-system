@@ -1,0 +1,143 @@
+Browser check (scripts/ui_smoke.py), run on 2026-11-04T02:50Z
+Chromium under Playwright, window 1440 x 900. Data: a new data folder seeded with 'docintel seed samples' (32 documents, 58 records). Server: 'docintel serve'.
+
+ok      / (first load)
+ok      menu: Upload
+ok      menu: Documents
+ok      menu: To review
+ok      menu: Search
+ok      menu: Compare
+ok      menu: Overview
+ok      /documents/c45bb160 multi-sheet-workbook.xlsx
+ok      /documents/96801107 line-items-grouped.xlsx
+ok      /documents/415f4b8f ledger.xlsx
+ok      /documents/5be7f820 ledger.csv
+ok      /documents/e3e0c89b invoice-sheet.xlsx
+ok      /documents/7dd92ad1 invoice-sheet-with-formulas.xlsx
+ok      /documents/75202e66 invoice-sheet-legacy.xls
+ok      /documents/4d6a1590 scan-tiff-INV-25-1274.tif
+ok      /documents/09b82b8b scan-poor-quality-INV-2026-84450.png
+ok      /documents/04c32e5e scan-png-INV-2025-21343.png
+ok      /documents/b2250895 scan-pdf-BD202556968.pdf
+ok      /documents/b7b3f085 scan-jpg-INV0065557.jpg
+ok      /documents/70afde08 total-does-not-add-up.pdf
+ok      /documents/60988581 subtotal-wrong.pdf
+ok      /documents/cffe924c missing-invoice-number.pdf
+ok      /documents/7753bedb line-amount-wrong.pdf
+ok      /documents/2dc8d5dc batch-of-4-invoices.pdf
+ok      /documents/1b57a651 layout-6-A-70962.pdf
+ok      /documents/09a6a54e layout-5-INV-25-7550.pdf
+ok      /documents/898dca95 layout-4-SI-25-287.pdf
+ok      /documents/2b0d06a2 layout-3-SI-25-365.pdf
+ok      /documents/d0ab2e8c layout-2-BD202508018.pdf
+ok      /documents/cb1d9972 layout-1-INV-2025-07745.pdf
+ok      /documents/7a7c6a05 truncated.pdf
+ok      /documents/91ee8c0c truncated-workbook.xlsx
+ok      /documents/7eec6508 password-protected.pdf
+ok      /documents/b7290bf2 letter-without-invoice.pdf
+ok      /documents/77e237cc blank-page.jpg
+ok      /documents/4b77925d 4-same-supplier-date-total-new-number.pdf
+ok      /documents/6c13c212 3-same-invoice-other-layout.pdf
+ok      /documents/69c92283 1-original.pdf
+ok      /documents/c790e2e3 register.xlsx
+ok      /records/2a8b063d SI-26-052
+ok      /records/0a3ad05d BD202625696
+ok      /records/4dd89bab A-96779
+ok      /records/4af027c1 2026/0015
+ok      /records/424e8961 140167
+ok      /records/31efd7ee SI-25-190
+ok      /records/82184b30 INV0009217
+ok      /records/2db822b1 BD202673402
+ok      /records/458ae7c7 BD202629272
+ok      /records/50cb2f14 INV/25/2149
+ok      /records/ce39aa98 INV-2025-35940
+ok      /records/e520b6a9 INV-2026-85599
+ok      /records/1c1c373b INV/25/7851
+ok      /records/dc5e8e05 192730
+ok      /records/0a7e81af INV/25/1071
+ok      /records/a3d8538c 2025/83607
+ok      /records/3782a9cc SI-26-458
+ok      /records/f28d0371 2025/86414
+ok      /records/814006e3 A-94038
+ok      /records/b7ca4c86 BD202513518
+ok      /records/ecb7d284 SI-25-095
+ok      /records/690cbb2c INV0038808
+ok      /records/4f7c9eac 126784
+ok      /records/33f6c724 SI-25-649
+ok      /records/c8b4e2ee BD202584366
+ok      /records/0fc36e99 2025/99484
+ok      /records/cd745638 158556
+ok      /records/5c3b6673 INV-2025-58904
+ok      /records/44881a49 A-75053
+ok      /records/50624da5 SI-26-878
+ok      /records/815ee1e7 INV/25/1274
+ok      /records/2dd3a11a INV-2026-84450
+ok      /records/e82e1f56 INV-2025-21343
+ok      /records/a77eeafa BD202556968
+ok      /records/2f7b1244 INV0065557
+ok      /records/7ac17bd7 INV-2025-86352
+ok      /records/c0620d20 INV/25/0550
+ok      /records/174f17ca no number
+ok      /records/763b368f BD202577323
+ok      /records/0158803b SI-26-780
+ok      /records/1cc7108f SI-25-237
+ok      /records/3aa00d12 172867
+ok      /records/988161b3 INV0064360
+ok      /records/59121c60 A-70962
+ok      /records/05d0227d INV/25/7550
+ok      /records/827f358e SI-25-287
+ok      /records/20c08f39 SI-25-365
+ok      /records/538031a5 BD202508018
+ok      /records/57b956a3 INV-2025-07745
+ok      /records/a974ce1b SI-26-903
+ok      /records/5a33966e SI-26-900
+ok      /records/d9d58704 SI-26-900
+ok      /records/0fa68919 REG-9999
+ok      /records/1692f8cd A-70962
+ok      /records/d3f53b27 SI-25-287
+ok      /records/55d61c42 SI-25-365
+ok      /records/94a7d1d1 BD202508018
+ok      /records/50bec7c2 INV-2025-07745
+ok      /search
+ok      /search?q=Cedar
+ok      /search?q=SI-26-052
+ok      /search?q=Cedar&mode=keyword
+ok      /search?q=Cedar&mode=semantic
+ok      /search?mode=semantic
+ok      /search?mode=keyword
+ok      /search?supplier=Cedar
+ok      /search?status=needs_review
+ok      /search?type=xlsx
+ok      /search?issues=true
+ok      /search?issues=false
+ok      /search?min=100&max=5000
+ok      /search?from=2025-01-01&to=2026-12-31
+ok      typed 'Cedar'
+ok      typed 'SI-26-052'
+ok      typed 'a "quoted" phrase'
+ok      typed 'AND OR NOT NEAR('
+ok      typed '50% off_ and more'
+ok      typed '*'
+ok      typed '('
+ok      typed '\\'
+ok      typed 'emoji 😀 text'
+ok      typed 'xxxxxxxxxxxxxxxxxxxxxxxx'
+ok      typed ''
+ok      mode: Exact words
+ok      mode: Similar meaning
+ok      mode: Both
+ok      filter Supplier = Cedar
+ok      filter Supplier = %_
+ok      filter Date from = 2025-01-01
+ok      filter Date to = 2026-12-31
+ok      filter Total at least = 1
+ok      filter Total at most = 99999
+ok      filter State = needs_review
+ok      filter State = ok
+ok      filter File type = pdf
+ok      filter File type = xlsx
+ok      filter Problems = true
+ok      filter Problems = false
+ok      filters cleared
+
+138 screens and actions checked, 0 problem(s).

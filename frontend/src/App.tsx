@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { UNAUTHORIZED_EVENT, api, getApiKey, setApiKey } from "./api";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import { Icon, ToastProvider } from "./components/ui";
 import { useLoad, useRoute } from "./hooks";
 import ComparePage from "./pages/ComparePage";
@@ -94,7 +95,10 @@ function Shell() {
           ) : health.error ? <p className="dot dot-bad">Cannot reach the server</p> : <p>Connecting…</p>}
         </div>
       </nav>
-      <main id="main" className="desk" tabIndex={-1}>{page}</main>
+      <main id="main" className="desk" tabIndex={-1}>
+        {/* Keyed by the page, so going to another page starts clean after a failure. */}
+        <ErrorBoundary key={route.path.join("/")}>{page}</ErrorBoundary>
+      </main>
       {needKey && <KeyPrompt onDone={() => { setNeedKey(false); window.location.reload(); }} />}
     </div>
   );

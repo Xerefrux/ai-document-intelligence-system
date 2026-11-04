@@ -15,6 +15,7 @@ htmlcov/
 
 # Runtime data and secrets
 data/
+demo-data/
 .env
 *.db
 *.db-wal

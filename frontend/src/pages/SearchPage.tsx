@@ -3,13 +3,19 @@ import { api } from "../api";
 import { Amount, Empty, LoadError, PageHead, RecStatusMark, Snippet } from "../components/ui";
 import { fmtDate, plural } from "../format";
 import { replaceQuery, useDebounced, useLoad, type Route } from "../hooks";
-import type { SearchResult } from "../types";
+import type { SearchRecord, SearchResult } from "../types";
 
 const MODES = [
   { id: "hybrid", label: "Both" },
   { id: "keyword", label: "Exact words" },
   { id: "semantic", label: "Similar meaning" },
 ];
+
+/** ", matched by words and meaning", or nothing when the invoice was listed without a text query (filters only). */
+export function matchedBy(by: SearchRecord["matched_by"] | undefined): string {
+  const parts = (by ?? []).map((m) => (m === "keyword" ? "words" : "meaning"));
+  return parts.length ? `, matched by ${parts.join(" and ")}` : "";
+}
 
 export default function SearchPage({ route }: { route: Route }) {
   const g = (k: string) => route.query.get(k) ?? "";
@@ -91,7 +97,7 @@ export default function SearchPage({ route }: { route: Route }) {
                           <span className="result-side"><Amount value={x.total} currency={x.currency} /><span className="quiet">{fmtDate(x.invoice_date)}</span><RecStatusMark status={x.review_status} /></span>
                         </span>
                         {x.snippet && <span className="result-snip"><Snippet text={x.snippet} /></span>}
-                        <span className="result-foot quiet">{x.filename}{x.matched_by.length ? `, matched by ${x.matched_by.map((m) => (m === "keyword" ? "words" : "meaning")).join(" and ")}` : ""}</span>
+                        <span className="result-foot quiet">{x.filename}{matchedBy(x.matched_by)}</span>
                       </a>
                     </li>
                   ))}

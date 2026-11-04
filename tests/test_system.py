@@ -252,6 +252,19 @@ def test_search_by_supplier_text_filters_and_typos(loaded):
     assert c.get("/api/search", params={"q": "zzzqqqxxnotthere", "mode": "hybrid"}).json()["total_records"] == 0
 
 
+def test_every_search_hit_has_the_same_fields_with_or_without_a_text_query(loaded):
+    """The web page reads score, matched_by and snippet on every hit. An empty search once left them out and the page went blank."""
+    s, app, c, make = loaded
+    word = _first_record(c)["fields"]["supplier_name"]["value"].split()[0]
+    for params in ({"q": ""}, {"q": "", "supplier": word}, {"q": word}, {"q": word, "mode": "keyword"}, {"q": word, "mode": "semantic"}):
+        hits = c.get("/api/search", params=params).json()["records"]
+        assert hits, params
+        for h in hits:
+            assert isinstance(h["matched_by"], list) and "snippet" in h and isinstance(h["score"], (int, float)), (params, h)
+    browse = c.get("/api/search", params={"q": ""}).json()["records"]
+    assert all(h["matched_by"] == [] and h["snippet"] is None for h in browse)
+
+
 def test_search_covers_the_full_text_of_pages_and_deleted_documents_disappear(loaded):
     s, app, c, make = loaded
     d = by_name(c)["inv-T2.pdf"]

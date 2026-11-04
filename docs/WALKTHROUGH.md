@@ -64,7 +64,7 @@ On the Upload page press **Retry**. It queues nothing: all three failures are th
 
 ## 9. Search
 
-Open **Search**. Try a supplier name (`Summit`), then an invoice number (`BD202508018`), then a word that appears in a line item (`thermometer`), and then the same word with a typo (`thermomter`). Exact words finds nothing for the typo, and the default **Both** still puts the right invoice first, with a few looser matches after it. Show the filters (supplier, dates, amount range, review status, file type), the marked snippets, and the switch between **Exact words**, **Similar meaning** and **Both**. Say honestly what the semantic mode is: by default it matches word fragments and typos, not meaning, the screen says so, and a real embedding model can be switched on with a key.
+Open **Search**. With nothing typed it lists the invoices, newest first. Try a supplier name (`Summit`), then an invoice number (`BD202508018`), then a word that appears in a line item (`thermometer`), and then the same word with a typo (`thermomter`). Exact words finds nothing for the typo, and the default **Both** still puts the right invoice first, with a few looser matches after it. Show the filters (supplier, dates, amount range, review status, file type), the marked snippets, and the switch between **Exact words**, **Similar meaning** and **Both**. Say honestly what the semantic mode is: by default it matches word fragments and typos, not meaning, the screen says so, and a real embedding model can be switched on with a key.
 
 ## 10. Tests and numbers
 
@@ -76,7 +76,7 @@ Then, in a terminal:
 pytest -p no:warnings
 ```
 
-It ends with a line like `159 passed in 34s` (the time depends on the machine). Do not add `-q` here: the project already sets it, and a second one hides that last line.
+It ends with a line like `160 passed in 27s` (the time depends on the machine). Do not add `-q` here: the project already sets it, and a second one hides that last line.
 
 Then open `EVALUATION.md` and walk through three things: the table after fixes, the first blind run (97% of fields right on digital PDFs but only half of the documents completely right), and the scan table by damage level. Close on the limits: synthetic documents, same author, the AI path not measured, SQLite only, built and tested on Linux.
 

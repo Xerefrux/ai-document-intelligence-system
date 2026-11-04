@@ -1,13 +1,16 @@
-Front end tests (vitest), run on 2026-11-01T20:02Z
+Front end tests (vitest), run on 2026-11-04T02:49Z
+
 
 
  RUN  v3.2.7 /home/claude/docintel/frontend
 
- ✓ src/components/ui.test.tsx (5 tests) 172ms
- ✓ src/format.test.ts (5 tests) 28ms
+ ✓ src/pages/SearchPage.test.tsx (4 tests) 123ms
+ ✓ src/components/ui.test.tsx (5 tests) 104ms
+ ✓ src/components/ErrorBoundary.test.tsx (4 tests) 125ms
+ ✓ src/format.test.ts (5 tests) 24ms
 
- Test Files  2 passed (2)
-      Tests  10 passed (10)
-   Start at  02:02:14
-   Duration  3.13s (transform 268ms, setup 199ms, collect 420ms, tests 200ms, environment 1.64s, prepare 247ms)
+ Test Files  4 passed (4)
+      Tests  18 passed (18)
+   Start at  08:49:58
+   Duration  3.85s (transform 237ms, setup 222ms, collect 521ms, tests 375ms, environment 1.75s, prepare 328ms)
 

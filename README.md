@@ -57,9 +57,9 @@ The assessment has seven tasks. Here is where each one lives and what checks it.
 | 1. Document processing: PDF, JPG, PNG, TIFF, XLSX, XLS, CSV; text layer, OCR, spreadsheets; multi-page, multi-sheet, poor quality, corrupted | `docintel/pipeline/` | `tests/test_readers.py` (30), `tests/test_windows.py` (5), failure tests in `tests/test_system.py`, `evaluation/e2e.py` |
 | 2. Extraction as JSON, never inventing a value | `docintel/extraction/` | `tests/test_extraction.py` (27), `tests/test_normalize.py` (28), `tests/test_llm.py` (18), `evaluation/` |
 | 3. Validation: missing fields, bad numbers, duplicates, subtotal, tax, line item and total checks, flag for review | `docintel/validation/` | `tests/test_validation.py` (13), `tests/test_system.py`, `evaluation/e2e.py` |
-| 4. REST API: upload, status, results, search, manual correction, reprocess failed jobs, background work | `docintel/api/`, `docintel/jobs/` | `tests/test_system.py` (38) |
+| 4. REST API: upload, status, results, search, manual correction, reprocess failed jobs, background work | `docintel/api/`, `docintel/jobs/` | `tests/test_system.py` (39) |
 | 5. Database and search: metadata, text, structured results, issues, history; keyword and semantic | `docintel/db/`, `docintel/search/` | `tests/test_system.py` |
-| 6. Front end: upload many, watch progress, inspect, review issues, correct, search | `frontend/` (React), built into `docintel/static` | type checked, 10 small tests (`npm test`), and checked by hand in a browser at desktop and phone width |
+| 6. Front end: upload many, watch progress, inspect, review issues, correct, search | `frontend/` (React), built into `docintel/static` | type checked, 18 small tests (`npm test`), `scripts/ui_smoke.py` (opens every screen in a real browser), and checked by hand at desktop and phone width |
 | 7. Testing and evaluation on a labelled set | `tests/`, `evaluation/` | `pytest`, then [EVALUATION.md](EVALUATION.md) |
 
 A few things worth knowing about how it behaves:
@@ -158,13 +158,22 @@ The full list, with ranges, is in `docintel/config.py`; `GET /api/config` shows 
 ## Tests
 
 ```bash
-pytest                      # 159 tests, about half a minute (it depends on the machine)
+pytest                      # 160 tests, about half a minute (it depends on the machine)
 pytest tests/test_system.py # API, queue and workers, search, security, failure scenarios
 ```
 
 The output of the last full run is saved in `evaluation/results/pytest_results.txt` (Python) and `frontend_test_results.txt` (front end).
 
-Sample files are generated while the tests run, so the repository carries no binary test data. The suite covers file type detection and OCR, spreadsheet parsing, extraction on every layout, normalisation, validation rules, the AI client against a mock server (retries, rate limits, a service that is down, answers that are invented or malformed), the whole API end to end, retry and crash recovery of the queue, search, authentication, rate limiting, size limits, hostile file names and broken files. The front end has 10 small tests (formatting helpers and a few components, `cd frontend && npm test`); its pages were checked by hand in a browser.
+Sample files are generated while the tests run, so the repository carries no binary test data. The suite covers file type detection and OCR, spreadsheet parsing, extraction on every layout, normalisation, validation rules, the AI client against a mock server (retries, rate limits, a service that is down, answers that are invented or malformed), the whole API end to end, retry and crash recovery of the queue, search, authentication, rate limiting, size limits, hostile file names and broken files. The front end has 18 small tests (formatting helpers, a few components, the search page and the message that replaces a screen that fails to draw; `cd frontend && npm test`). Most pages have no test of their own, so `scripts/ui_smoke.py` opens every screen of a running server in a real browser and fails on a blank window or any script error. It needs Playwright, so it is not part of `pytest`:
+
+```bash
+pip install playwright && playwright install chromium
+docintel --data-dir ./demo-data seed samples
+docintel --data-dir ./demo-data serve        # in another terminal
+python scripts/ui_smoke.py http://127.0.0.1:8000
+```
+
+The last run of it is saved in `evaluation/results/ui_smoke_results.txt`.
 
 ## Evaluation
 
